@@ -145,16 +145,7 @@
 </head>
 <body>
 
-<!--
-  ═══════════════════════════════════════════════════════════
-  ⚠️  CHANGE THESE 3 THINGS BEFORE YOU SHOW ANYONE ⚠️
-  Find the CONFIG block at the bottom of this file and edit:
-    • waNumber  → your real WhatsApp number (no + or spaces)
-    • plans     → your real prices
-    • email     → optional
-  Everything on the page updates from those values.
-  ═══════════════════════════════════════════════════════════
--->
+
 
 <header>
   <nav class="wrap navin">
@@ -322,14 +313,9 @@
 
 const CONFIG = {
 
-  // Your real WhatsApp number. Format: country code + number, digits only.
-  // Uganda = 256. NO plus sign, NO spaces.
-  waNumber: '256755432091',          // ← REPLACE
+  waNumber: '256755432091',       
+  email: 'alanwel32@gmail.com', 
 
-  // Optional: shown in the contact block. Leave '' to hide it.
-  email: 'alanwel32@gmail.com',       // ← REPLACE (optional)
-
-  // Your prices. Numbers only, no commas.
   plans: [
     {
       name: 'Starter',
@@ -393,9 +379,7 @@ const CONFIG = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   Everything below renders from CONFIG. You shouldn't need to
-   touch any of it.
-   ═══════════════════════════════════════════════════════════════ */
+   lyeksoft evill ════════════════════════════════════════ */
 
 const esc = s => (s ?? '').toString().replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 const money = n => 'UGX ' + Number(n).toLocaleString();
@@ -436,13 +420,9 @@ document.getElementById('work').innerHTML = CONFIG.work.map(w => `
       </span>
     </div>
   </a>`).join('');
-
-/* ── whatsapp links everywhere ── */
 const DEFAULT_MSG = `Hi Allan, I run a business in Uganda and I need a website. Can we talk?`;
 document.querySelectorAll('#navWa,#heroWa,#ctaWa,#waFloat,#waFab')
   .forEach(a => { a.href = waLink(DEFAULT_MSG); a.target = '_blank'; a.rel = 'noopener'; });
-
-/* ── optional email ── */
 if (CONFIG.email) {
   document.getElementById('altContact').innerHTML =
     `or email me at <a href="mailto:${esc(CONFIG.email)}" style="color:#5fd0d0;font-weight:600">${esc(CONFIG.email)}</a>`;
